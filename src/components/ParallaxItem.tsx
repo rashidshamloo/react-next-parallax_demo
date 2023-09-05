@@ -1,6 +1,9 @@
 // react
 import { useRef } from 'react';
 
+// config
+import { base } from '../config/config';
+
 // types
 interface ParallaxItemProps {
   parallax: boolean;
@@ -14,8 +17,7 @@ const ParallaxItem = ({
   borderRadius,
   disabled,
   type,
-}: 
-ParallaxItemProps) => {
+}: ParallaxItemProps) => {
   //ref
   const ref = useRef<HTMLDivElement>(null);
 
@@ -47,28 +49,28 @@ ParallaxItemProps) => {
     >
       <img
         data-parallax-offset={parallax ? '-4.5' : undefined}
-        src="/images/balloon/01.webp"
+        src={`${base}/images/balloon/01.webp`}
       />
       <img
         data-parallax-offset={parallax ? '-2.5' : undefined}
-        src="/images/balloon/02.webp"
+        src={`${base}/images/balloon/02.webp`}
       />
 
       <img
-        src="/images/balloon/03.webp"
+        src={`${base}/images/balloon/03.webp`}
         className={disabled ? '' : 'animate-float'}
       />
       <img
         data-parallax-offset={parallax ? '2' : undefined}
-        src="/images/balloon/04.webp"
+        src={`${base}/images/balloon/04.webp`}
       />
       <img
         data-parallax-offset={parallax ? '4' : undefined}
-        src="/images/balloon/05.webp"
+        src={`${base}/images/balloon/05.webp`}
       />
       <img
         data-parallax-offset={parallax ? '5' : undefined}
-        src="/images/balloon/06.webp"
+        src={`${base}/images/balloon/06.webp`}
         className={disabled ? '' : 'animate-float2'}
       />
     </div>
