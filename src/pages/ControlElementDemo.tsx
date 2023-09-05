@@ -13,7 +13,7 @@ import Footer from '../components/Footer.tsx';
 
 const ControlElementDemo = () => {
   // media query
-  const isLarge = useMediaQuery({ query: '(min-width: 1024px)' });
+  const isLarge = useMediaQuery({ query: '(min-width: 1020px)' });
 
   // state
   const [controlGroup1, setControlGroup1] = useState<boolean[]>([]);
