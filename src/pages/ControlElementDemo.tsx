@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 
 // react-next-tilt
-import { Parallax } from 'react-next-Parallax';
+import { Parallax } from 'react-next-parallax';
 
 // components
 import ParallaxItem from '../components/ParallaxItem.tsx';

@@ -5,7 +5,7 @@ import { PropsWithChildren, memo } from 'react';
 import { useRouteError, isRouteErrorResponse } from 'react-router-dom';
 
 // react-flip-tilt
-import { Parallax } from 'react-next-Parallax';
+import { Parallax } from 'react-next-parallax';
 
 const Error = () => {
   const error = useRouteError();
