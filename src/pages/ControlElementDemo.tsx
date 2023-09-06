@@ -15,6 +15,18 @@ const ControlElementDemo = () => {
   // media query
   const isLarge = useMediaQuery({ query: '(min-width: 1020px)' });
 
+  // state default
+  const defaultControlGroup1 = Array(8).fill(false);
+  const defaultControlGroup2 = Array(8).fill(false);
+  for (let i = 0; i < 8; i++) {
+    if (
+      (i % 2 && i < (isLarge ? 4 : 2)) ||
+      (!(i % 2) && i >= (isLarge ? 4 : 2))
+    )
+      defaultControlGroup2[i] = true;
+    else defaultControlGroup1[i] = true;
+  }
+
   // state
   const [controlGroup1, setControlGroup1] = useState<boolean[]>([]);
   const [controlGroup2, setControlGroup2] = useState<boolean[]>([]);
@@ -25,21 +37,6 @@ const ControlElementDemo = () => {
   const controlElement1 = useRef<HTMLDivElement>(null);
   const controlElement2 = useRef<HTMLDivElement>(null);
   const fullPageListeningCheckbox = useRef<HTMLInputElement>(null);
-
-  useEffect(() => {
-    const defaultControlGroup1 = Array(8).fill(false);
-    const defaultControlGroup2 = Array(8).fill(false);
-    for (let i = 0; i < 8; i++) {
-      if (
-        (i % 2 && i < (isLarge ? 4 : 2)) ||
-        (!(i % 2) && i >= (isLarge ? 4 : 2))
-      )
-        defaultControlGroup2[i] = true;
-      else defaultControlGroup1[i] = true;
-    }
-    setControlGroup1(defaultControlGroup1);
-    setControlGroup2(defaultControlGroup2);
-  }, [isLarge]);
 
   useEffect(() => {
     if (fullPageListening && fullPageListeningCheckbox.current) {
