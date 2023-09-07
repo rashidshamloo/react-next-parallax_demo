@@ -13,19 +13,7 @@ import Footer from '../components/Footer.tsx';
 
 const ControlElementDemo = () => {
   // media query
-  const isLarge = useMediaQuery({ query: '(min-width: 1020px)' });
-
-  // state default
-  const defaultControlGroup1 = Array(8).fill(false);
-  const defaultControlGroup2 = Array(8).fill(false);
-  for (let i = 0; i < 8; i++) {
-    if (
-      (i % 2 && i < (isLarge ? 4 : 2)) ||
-      (!(i % 2) && i >= (isLarge ? 4 : 2))
-    )
-      defaultControlGroup2[i] = true;
-    else defaultControlGroup1[i] = true;
-  }
+  const isLarge = useMediaQuery({ query: '(min-width: 1024px)' });
 
   // state
   const [controlGroup1, setControlGroup1] = useState<boolean[]>([]);
@@ -37,6 +25,21 @@ const ControlElementDemo = () => {
   const controlElement1 = useRef<HTMLDivElement>(null);
   const controlElement2 = useRef<HTMLDivElement>(null);
   const fullPageListeningCheckbox = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    const defaultControlGroup1 = Array(8).fill(false);
+    const defaultControlGroup2 = Array(8).fill(false);
+    for (let i = 0; i < 8; i++) {
+      if (
+        (i % 2 && i < (isLarge ? 4 : 2)) ||
+        (!(i % 2) && i >= (isLarge ? 4 : 2))
+      )
+        defaultControlGroup2[i] = true;
+      else defaultControlGroup1[i] = true;
+    }
+    setControlGroup1(defaultControlGroup1);
+    setControlGroup2(defaultControlGroup2);
+  }, [isLarge]);
 
   useEffect(() => {
     if (fullPageListening && fullPageListeningCheckbox.current) {
@@ -63,7 +66,7 @@ const ControlElementDemo = () => {
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-start gap-x-16 gap-y-8 bg-slate-300 bg-[url('/images/p-bg.webp')] bg-contain bg-fixed bg-left bg-no-repeat pb-4 pt-8 font-inter">
-      <header className="grid w-[360px] max-w-full grid-cols-2 gap-4 lg:w-[848px]">
+      <header className="grid w-[360px] max-w-full grid-cols-2 gap-4 overflow-hidden lg:w-[848px]">
         <h1 className="sr-only">Next-Parallax Control Element Demo</h1>
         <div className="flex flex-col items-center justify-center self-end">
           <div className="mb-7 inline-grid grid-cols-2 gap-x-10 gap-y-2 rounded-xl border-[1px] border-slate-100/50 bg-slate-200 px-6 pb-3 pt-6 text-center text-slate-500 lg:grid-cols-4 lg:gap-x-8 lg:gap-y-4">
