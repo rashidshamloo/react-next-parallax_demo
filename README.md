@@ -14,6 +14,7 @@ This is the Demo for the [react-next-parallax](https://www.npmjs.com/package/rea
 ## Links
 
 - Main Demo: https://rashidshamloo.github.io/react-next-parallax_demo
+- Attributes Demo: https://rashidshamloo.github.io/react-next-parallax_demo/attributes
 - Control Element Demo: https://rashidshamloo.github.io/react-next-parallax_demo/control-element
 - react-next-parallax Package: https://www.npmjs.com/package/react-next-parallax
 - react-next-parallax Repository: https://github.com/rashidshamloo/react-next-parallax
